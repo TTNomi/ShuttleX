@@ -1,0 +1,64 @@
+PODS:
+  - Alamofire (4.8.1)
+  - CocoaLumberjack/Core (3.5.1)
+  - CocoaLumberjack/Swift (3.5.1):
+    - CocoaLumberjack/Core
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - LetsMove (1.24)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - Sparkle (1.21.3)
+  - SwiftyJSON (4.2.0)
+  - WebViewJavascriptBridge (6.0.3)
+  - Yams (1.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - CocoaLumberjack/Swift
+  - Crashlytics
+  - Fabric
+  - LetsMove
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - Sparkle
+  - SwiftyJSON (~> 4.0)
+  - WebViewJavascriptBridge (~> 6.0)
+  - Yams
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CocoaLumberjack
+    - Crashlytics
+    - Fabric
+    - LetsMove
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - Sparkle
+    - SwiftyJSON
+    - WebViewJavascriptBridge
+    - Yams
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  CocoaLumberjack: 2101f8a5508197a305e737d16c5c2e9e2157628c
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  Sparkle: 3f75576db8b0265adef36c43249d747f22d0b708
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
+  Yams: 572f625a8b719b73e0b57fd313c680f3e2161fe9
+
+PODFILE CHECKSUM: 084da56cb9c2fc40a1377017ea6f03d898c66b01
+
+COCOAPODS: 1.6.1
