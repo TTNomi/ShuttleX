@@ -10,26 +10,39 @@ import Foundation
 import SwiftyJSON
 
 class Config {
-    let logMode: String
-    let logPath: String
-    let configPath: String
+    var logMode: String = ""
+    var logPath: String = ""
+    var configPath: String = ""
+    
+    init() {
+        
+    }
     
     init(logMode:String, logPath:String, configPath: String) {
         self.logMode = logMode
         self.logPath = logPath
         self.configPath = configPath
     }
+    
+    func json() -> String{
+        let json: JSON =  ["log_mode":logMode, "log_path":logPath, "config_path":configPath]
+        return json.rawString()!
+    }
 }
 
 class ShuttleManager {
-    let conf: Config
+    var conf: Config = Config()
+    
+    init() {
+        
+    }
+    
     init(conf: Config) {
         self.conf = conf
     }
     
     func Start() -> Int64 {
-        let jsonObj = JSON.init(self.conf)
-        let confStr = jsonObj.rawString()!
+        let confStr = self.conf.json()
         return confStr.withCString{ cstr in
             Run(GoString(p: cstr, n: strlen(confStr)))
         }

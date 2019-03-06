@@ -25,8 +25,11 @@
                         <action selector="startShuttle:" target="Voe-Tx-rLC" id="l8L-rN-tK1"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Item 2" id="0xX-6W-DV6">
+                <menuItem title="ConfigFile" id="0xX-6W-DV6">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="selectConfigFile:" target="Voe-Tx-rLC" id="Qy6-SS-qYK"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Quit" id="EBz-cL-8bA">
                     <modifierMask key="keyEquivalentModifierMask"/>

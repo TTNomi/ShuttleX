@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu!
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let conf = Config()
+    let shuttle = ShuttleManager()
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
@@ -20,29 +22,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         statusItem.button?.title = "ShuttleX"
         statusItem.menu = statusMenu
-        readFile()
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-    @IBAction func startShuttle(_ sender: Any) {
-//        let logpath = NSHomeDirectory() + "/logs"
-        let confStr = "{}"
-        let status = confStr.withCString { cstr in
-            Run(GoString(p: cstr, n: strlen(cstr)))
+    @IBAction func selectConfigFile(_ sender: Any) {
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a .txt file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = ["yaml"];
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                let path = result!.path
+                conf.configPath = path
+                print(path)
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
         }
-        print(status)
     }
-    func readFile() {
-        let path = "/Users/xinyanwu/Downloads/logs/test.log"
-        do {
-//            let text = try String(contentsOfFile:path, encoding:.utf8)
-            try path.write(toFile: path, atomically: true, encoding: .utf8)
-//            print(text)
-        } catch let error as NSError {
-            print("Ooops! Something went wrong: \(error)")
-        }
+    
+    @IBAction func startShuttle(_ sender: Any) {
+        conf.logMode = "off"
+        conf.logPath = NSHomeDirectory() + "/logs"
+        shuttle.conf = conf
+        print(shuttle.Start())
     }
 }
