@@ -1,0 +1,13 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "data" : [
+    {
+      "idiom" : "universal",
+      "filename" : "GeoLite2-Country.mmdb",
+      "universal-type-identifier" : "dyn.ah62d4rv4ge8045peqk"
+    }
+  ]
+}

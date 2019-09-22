@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770AF86B7E0706FC23FF2224 /* Pods_shuttleX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC382BA5613B0ED6CB62FC2 /* Pods_shuttleX.framework */; };
 		A60941632331465C0020C58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60941622331465C0020C58C /* AppDelegate.swift */; };
-		A60941652331465E0020C58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60941642331465E0020C58C /* Assets.xcassets */; };
 		A60941682331465E0020C58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60941662331465E0020C58C /* Main.storyboard */; };
+		A609417223368A9F0020C58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A609417123368A9F0020C58C /* Assets.xcassets */; };
+		A609417423368CDA0020C58C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A609417323368CDA0020C58C /* MainMenu.xib */; };
+		A609417823368D4E0020C58C /* StatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A609417723368D4E0020C58C /* StatusMenu.xib */; };
+		A609417B23368E290020C58C /* GeoLite2-Country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = A609417A23368E280020C58C /* GeoLite2-Country.mmdb */; };
+		A609417E2336A08F0020C58C /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A609417D2336A08F0020C58C /* StatusMenu.swift */; };
+		A60941892337C2B50020C58C /* Shuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60941872337C2B50020C58C /* Shuttle.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CC382BA5613B0ED6CB62FC2 /* Pods_shuttleX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shuttleX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A609415F2331465C0020C58C /* shuttleX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shuttleX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60941622331465C0020C58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A60941642331465E0020C58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60941672331465E0020C58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A60941692331465E0020C58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A609416A2331465E0020C58C /* shuttleX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = shuttleX.entitlements; sourceTree = "<group>"; };
+		A609417123368A9F0020C58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A609417323368CDA0020C58C /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		A609417723368D4E0020C58C /* StatusMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusMenu.xib; sourceTree = "<group>"; };
+		A609417A23368E280020C58C /* GeoLite2-Country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeoLite2-Country.mmdb"; sourceTree = "<group>"; };
+		A609417D2336A08F0020C58C /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
+		A60941862337B7130020C58C /* Shuttle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shuttle-Bridging-Header.h"; sourceTree = "<group>"; };
+		A60941872337C2B50020C58C /* Shuttle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = Shuttle.a; sourceTree = "<group>"; };
+		A60941882337C2B50020C58C /* Shuttle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shuttle.h; sourceTree = "<group>"; };
+		AE3B4AFB98B009B93E89E35D /* Pods-shuttleX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shuttleX.release.xcconfig"; path = "Target Support Files/Pods-shuttleX/Pods-shuttleX.release.xcconfig"; sourceTree = "<group>"; };
+		C0E897B370ABEBC008AC9858 /* Pods-shuttleX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shuttleX.debug.xcconfig"; path = "Target Support Files/Pods-shuttleX/Pods-shuttleX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +42,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770AF86B7E0706FC23FF2224 /* Pods_shuttleX.framework in Frameworks */,
+				A60941892337C2B50020C58C /* Shuttle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13EC03AB47CD6F89C6C8C5C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CC382BA5613B0ED6CB62FC2 /* Pods_shuttleX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A60941562331465C0020C58C = {
 			isa = PBXGroup;
 			children = (
 				A60941612331465C0020C58C /* shuttleX */,
 				A60941602331465C0020C58C /* Products */,
+				F4B07AF4B21978AEA5738383 /* Pods */,
+				13EC03AB47CD6F89C6C8C5C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,13 +79,53 @@
 		A60941612331465C0020C58C /* shuttleX */ = {
 			isa = PBXGroup;
 			children = (
+				A609417F2337B3600020C58C /* ShuttleCore */,
+				A609417C2336A06C0020C58C /* menu */,
+				A609417923368DCA0020C58C /* Resources */,
+				A609417123368A9F0020C58C /* Assets.xcassets */,
 				A60941622331465C0020C58C /* AppDelegate.swift */,
-				A60941642331465E0020C58C /* Assets.xcassets */,
 				A60941662331465E0020C58C /* Main.storyboard */,
 				A60941692331465E0020C58C /* Info.plist */,
 				A609416A2331465E0020C58C /* shuttleX.entitlements */,
+				A609417323368CDA0020C58C /* MainMenu.xib */,
+				A609417723368D4E0020C58C /* StatusMenu.xib */,
 			);
 			path = shuttleX;
+			sourceTree = "<group>";
+		};
+		A609417923368DCA0020C58C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A609417A23368E280020C58C /* GeoLite2-Country.mmdb */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A609417C2336A06C0020C58C /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				A609417D2336A08F0020C58C /* StatusMenu.swift */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		A609417F2337B3600020C58C /* ShuttleCore */ = {
+			isa = PBXGroup;
+			children = (
+				A60941872337C2B50020C58C /* Shuttle.a */,
+				A60941882337C2B50020C58C /* Shuttle.h */,
+				A60941862337B7130020C58C /* Shuttle-Bridging-Header.h */,
+			);
+			path = ShuttleCore;
+			sourceTree = "<group>";
+		};
+		F4B07AF4B21978AEA5738383 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0E897B370ABEBC008AC9858 /* Pods-shuttleX.debug.xcconfig */,
+				AE3B4AFB98B009B93E89E35D /* Pods-shuttleX.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A609416D2331465E0020C58C /* Build configuration list for PBXNativeTarget "shuttleX" */;
 			buildPhases = (
+				D2724514E3B4C424D1D89430 /* [CP] Check Pods Manifest.lock */,
 				A609415B2331465C0020C58C /* Sources */,
 				A609415C2331465C0020C58C /* Frameworks */,
 				A609415D2331465C0020C58C /* Resources */,
+				0FB323776A3CB74A995DB216 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -118,18 +188,87 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A60941652331465E0020C58C /* Assets.xcassets in Resources */,
+				A609417823368D4E0020C58C /* StatusMenu.xib in Resources */,
+				A609417223368A9F0020C58C /* Assets.xcassets in Resources */,
+				A609417B23368E290020C58C /* GeoLite2-Country.mmdb in Resources */,
 				A60941682331465E0020C58C /* Main.storyboard in Resources */,
+				A609417423368CDA0020C58C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FB323776A3CB74A995DB216 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shuttleX/Pods-shuttleX-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework",
+				"${BUILT_PRODUCTS_DIR}/Yams/Yams.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebViewJavascriptBridge.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yams.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shuttleX/Pods-shuttleX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2724514E3B4C424D1D89430 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-shuttleX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A609415B2331465C0020C58C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A609417E2336A08F0020C58C /* StatusMenu.swift in Sources */,
 				A60941632331465C0020C58C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +343,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PRODUCT_NAME}/ShuttleCore/Shuttle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -257,12 +397,14 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PRODUCT_NAME}/ShuttleCore/Shuttle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
 		A609416E2331465E0020C58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0E897B370ABEBC008AC9858 /* Pods-shuttleX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = shuttleX/shuttleX.entitlements;
@@ -275,6 +417,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/shuttleX/ShuttleCore",
+					"$(PROJECT_DIR)/shuttleX/Resources",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.shuttleX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -283,6 +430,7 @@
 		};
 		A609416F2331465E0020C58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE3B4AFB98B009B93E89E35D /* Pods-shuttleX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = shuttleX/shuttleX.entitlements;
@@ -294,6 +442,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/shuttleX/ShuttleCore",
+					"$(PROJECT_DIR)/shuttleX/Resources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.shuttleX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
