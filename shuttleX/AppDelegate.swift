@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var configPath: String = ""
     var pluginsDir: String = ""
     let geoipPath = Bundle.main.bundlePath + "/Contents/Resources/GeoLite2-Country.mmdb"
+    var ps: ProxySettings?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -24,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         print(Bundle.main.bundlePath)
         constructMenu()
+        loadProxySettings()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -43,12 +45,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Start", action: #selector(start), keyEquivalent: "c"))
         menu.addItem(NSMenuItem(title: "Stop", action: #selector(stop), keyEquivalent: "c"))
         menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Set As System Proxies", action: #selector(enableProxies), keyEquivalent: "c"))
+        menu.addItem(NSMenuItem(title: "Unset As System Proxies", action: #selector(disableProxies), keyEquivalent: "c"))
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Quotes", action: nil, keyEquivalent: "q"))
         
         statusItem.menu = menu
     }
     
+    func loadProxySettings() {
+        ps = ProxySettings(settings: ProxySetting(
+            httpHost: "127.0.0.1",
+            httpPort: 8081,
+            httpEnable: 1,
+            httpsHost: "127.0.0.1",
+            httpsPort: 8081,
+            httpsEnable: 1,
+            socksHost: "127.0.0.1",
+            socksPort: 9000,
+            socksEnable: 1
+        ))
+        print(ps!.oldSettings!)
+    }
     
+    @objc func enableProxies(){
+        ps!.EnableProxy()
+    }
+    
+    @objc func disableProxies(){
+        ps!.DisableProxy()
+    }
     
     @objc func chooseFile() {
         panel.canChooseFiles = true
