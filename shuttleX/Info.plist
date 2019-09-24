@@ -32,5 +32,10 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>top.sipt.ShuttleXHelper</key>
+		<string>identifier "top.sipt.ShuttleXHelper" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: 1182102908@qq.com (PPV2YBSVY8)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+	</dict>
 </dict>
 </plist>

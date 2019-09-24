@@ -10,7 +10,7 @@ import SystemConfiguration
 import Cocoa
 
 
-@objc class ProxySetting{
+class ProxySetting{
     var httpHost: String
     var httpPort: Int
     var httpEnable: Int
@@ -20,6 +20,41 @@ import Cocoa
     var socksHost: String
     var socksPort: Int
     var socksEnable: Int
+    
+    init(
+        httpHost: String,
+        httpPort: Int,
+        httpEnable: Int,
+        httpsHost: String,
+        httpsPort: Int,
+        httpsEnable: Int,
+        socksHost: String,
+        socksPort: Int,
+        socksEnable: Int) {
+        self.httpHost = httpHost
+        self.httpPort = httpPort
+        self.httpEnable = httpEnable
+        self.httpsHost = httpsHost
+        self.httpsPort = httpsPort
+        self.httpsEnable = httpsEnable
+        self.socksHost = socksHost
+        self.socksPort = socksPort
+        self.socksEnable = socksEnable
+    }
+    
+    func toDict() -> [NSObject : AnyObject] {
+        return [
+            kCFNetworkProxiesHTTPProxy : self.httpHost as AnyObject?,
+            kCFNetworkProxiesHTTPPort : self.httpPort as NSNumber,
+            kCFNetworkProxiesHTTPEnable : self.httpEnable as NSNumber,
+            kCFNetworkProxiesHTTPSProxy : self.httpsHost as AnyObject?,
+            kCFNetworkProxiesHTTPSPort : self.httpsPort as NSNumber,
+            kCFNetworkProxiesHTTPSEnable : self.httpsEnable as NSNumber,
+            kCFNetworkProxiesSOCKSProxy : self.socksHost as AnyObject?,
+            kCFNetworkProxiesSOCKSPort : self.socksPort as NSNumber,
+            kCFNetworkProxiesSOCKSEnable : self.socksEnable as NSNumber,
+            ] as [NSObject : AnyObject]
+    }
 }
 
 class ProxySettings {
@@ -36,19 +71,8 @@ class ProxySettings {
         LoadSystemProxySettings()
     }
     
-    func EnableProxy(settings: ProxySetting) {
-        let settings = [
-            kCFNetworkProxiesHTTPProxy : settings.httpHost as AnyObject?,
-            kCFNetworkProxiesHTTPPort : settings.httpPort as NSNumber,
-            kCFNetworkProxiesHTTPEnable : settings.httpEnable as NSNumber,
-            kCFNetworkProxiesHTTPSProxy : settings.httpsHost as AnyObject?,
-            kCFNetworkProxiesHTTPSPort : settings.httpsPort as NSNumber,
-            kCFNetworkProxiesHTTPSEnable : settings.httpsEnable as NSNumber,
-            kCFNetworkProxiesSOCKSProxy : settings.socksHost as AnyObject?,
-            kCFNetworkProxiesSOCKSPort : settings.socksPort as NSNumber,
-            kCFNetworkProxiesSOCKSEnable : settings.socksEnable as NSNumber,
-            ] as [NSObject : AnyObject]
-        setProxy(proxies: settings!)
+    func EnableProxy(settings: [NSObject : AnyObject]) {
+        setProxy(proxies: settings)
     }
     
     func DisableProxy() {

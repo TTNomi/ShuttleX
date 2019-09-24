@@ -54,7 +54,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func loadProxySettings() {
-        ps = ProxySettings(settings: ProxySetting(
+        ps = ProxySettings()
+        print(ps!.oldSettings!)
+    }
+    
+    @objc func enableProxies(){
+        let proxies: ProxySetting = ProxySetting(
             httpHost: "127.0.0.1",
             httpPort: 8081,
             httpEnable: 1,
@@ -64,12 +69,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             socksHost: "127.0.0.1",
             socksPort: 9000,
             socksEnable: 1
-        ))
-        print(ps!.oldSettings!)
-    }
-    
-    @objc func enableProxies(){
-        ps!.EnableProxy()
+        )
+        ps!.EnableProxy(settings: proxies.toDict())
     }
     
     @objc func disableProxies(){

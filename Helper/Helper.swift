@@ -9,9 +9,10 @@
 import Foundation
 
 @objc protocol PShuttleXHelper{
-    func EnableProxy(_ settings: ProxySetting)
+    func EnableProxy(_ settings: [NSObject : AnyObject])
     func DisableProxy()
     func ProxyChanged(_ reply: (Bool) -> Void)
+    func Exit()
 }
 
 class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
@@ -20,6 +21,7 @@ class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
     
     var listener: NSXPCListener
     var proxySettings: ProxySettings = ProxySettings()
+    var exit: Bool = false
     
     override init() {
         listener = NSXPCListener(machServiceName: ShuttleXHelper.HelperServiceName)
@@ -29,17 +31,19 @@ class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
     
     func run() {
         listener.resume()
-        RunLoop.current.run()
+        while !self.exit {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 2.0))
+        }
     }
     
-    func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-        newConnection.exportedInterface = NSXPCInterface(with: PShuttleXHelper.self)
-        newConnection.exportedObject = self
-        newConnection.resume()
+    func listener(_ listener: NSXPCListener, shouldAcceptNewConnection connection: NSXPCConnection) -> Bool {
+        connection.exportedInterface = NSXPCInterface(with: PShuttleXHelper.self)
+        connection.exportedObject = self
+        connection.resume()
         return true
     }
 
-    func EnableProxy(_ settings: ProxySetting){
+    func EnableProxy(_ settings: [NSObject : AnyObject]){
         self.proxySettings.EnableProxy(settings: settings)
     }
 
@@ -49,5 +53,9 @@ class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
 
     func ProxyChanged(_ reply: (Bool) -> Void) {
         
+    }
+    
+    func Exit() {
+        self.exit = true
     }
 }

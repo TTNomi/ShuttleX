@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Info.plist
+   shuttleX
+
+   Created by sipt on 2019/9/25.
+   Copyright (c) 2019 sipt. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>CFBundleIdentifier</key>
+        <string>top.sipt.ShuttleXHelper</string>
+        <key>CFBundleInfoDictionaryVersion</key>
+        <string>6.0</string>
+        <key>CFBundleName</key>
+        <string>ShuttleXHelper</string>
+        <key>CFBundleVersion</key>
+        <string>3</string>
+        <key>SMAuthorizedClients</key>
+        <array>
+            <string>identifier "top.sipt.ShuttleXHelper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XXXXXXXXXX</string>
+        </array>
+    </dict>
+</plist>
