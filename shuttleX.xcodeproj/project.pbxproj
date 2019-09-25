@@ -17,13 +17,14 @@
 		A609417E2336A08F0020C58C /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A609417D2336A08F0020C58C /* StatusMenu.swift */; };
 		A60941892337C2B50020C58C /* Shuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60941872337C2B50020C58C /* Shuttle.a */; };
 		A67C8F97233A9698004C6808 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C8F96233A9698004C6808 /* main.swift */; };
-		A67C8F9B233A97A3004C6808 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A657ED11233950B500169060 /* Helper.swift */; };
-		A67C8F9F233A987C004C6808 /* ProxySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C8F9E233A987C004C6808 /* ProxySettings.swift */; };
-		A67C8FA0233A987C004C6808 /* ProxySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C8F9E233A987C004C6808 /* ProxySettings.swift */; };
 		A67C8FA2233A9D46004C6808 /* SMJobBlessUtil.py in Resources */ = {isa = PBXBuildFile; fileRef = A67C8FA1233A9D46004C6808 /* SMJobBlessUtil.py */; };
 		A67C8FA4233A9D84004C6808 /* ShuttleXHelper-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C8FA3233A9D84004C6808 /* ShuttleXHelper-Info.plist */; };
 		A67C8FA6233A9EB4004C6808 /* ShuttleXHelper-Launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C8FA5233A9EB4004C6808 /* ShuttleXHelper-Launchd.plist */; };
 		A67C8FA9233AAD8A004C6808 /* top.sipt.ShuttleXHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A67C8F94233A9698004C6808 /* top.sipt.ShuttleXHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A6CAE151233BE49B00BEA527 /* ProxySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAE150233BE49B00BEA527 /* ProxySettings.swift */; };
+		A6CAE152233BE49B00BEA527 /* ProxySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAE150233BE49B00BEA527 /* ProxySettings.swift */; };
+		A6CAE154233BE50000BEA527 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAE153233BE50000BEA527 /* Helper.swift */; };
+		A6CAE155233BE50000BEA527 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAE153233BE50000BEA527 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,15 +75,15 @@
 		A60941862337B7130020C58C /* Shuttle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shuttle-Bridging-Header.h"; sourceTree = "<group>"; };
 		A60941872337C2B50020C58C /* Shuttle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = Shuttle.a; sourceTree = "<group>"; };
 		A60941882337C2B50020C58C /* Shuttle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shuttle.h; sourceTree = "<group>"; };
-		A657ED11233950B500169060 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A657ED2B233A6E6700169060 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		A67C8F3F233A6FC7004C6808 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		A67C8F94233A9698004C6808 /* top.sipt.ShuttleXHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = top.sipt.ShuttleXHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67C8F96233A9698004C6808 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		A67C8F9E233A987C004C6808 /* ProxySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProxySettings.swift; path = shuttleX/ProxySettings.swift; sourceTree = SOURCE_ROOT; };
 		A67C8FA1233A9D46004C6808 /* SMJobBlessUtil.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = SMJobBlessUtil.py; sourceTree = "<group>"; };
 		A67C8FA3233A9D84004C6808 /* ShuttleXHelper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Info.plist"; sourceTree = "<group>"; };
 		A67C8FA5233A9EB4004C6808 /* ShuttleXHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Launchd.plist"; sourceTree = "<group>"; };
+		A6CAE150233BE49B00BEA527 /* ProxySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxySettings.swift; sourceTree = "<group>"; };
+		A6CAE153233BE50000BEA527 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		AE3B4AFB98B009B93E89E35D /* Pods-shuttleX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shuttleX.release.xcconfig"; path = "Target Support Files/Pods-shuttleX/Pods-shuttleX.release.xcconfig"; sourceTree = "<group>"; };
 		C0E897B370ABEBC008AC9858 /* Pods-shuttleX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shuttleX.debug.xcconfig"; path = "Target Support Files/Pods-shuttleX/Pods-shuttleX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +142,7 @@
 		A60941612331465C0020C58C /* shuttleX */ = {
 			isa = PBXGroup;
 			children = (
+				A6CAE150233BE49B00BEA527 /* ProxySettings.swift */,
 				A609417F2337B3600020C58C /* ShuttleCore */,
 				A609417C2336A06C0020C58C /* menu */,
 				A609417923368DCA0020C58C /* Resources */,
@@ -184,8 +186,7 @@
 		A67C8F95233A9698004C6808 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				A67C8F9E233A987C004C6808 /* ProxySettings.swift */,
-				A657ED11233950B500169060 /* Helper.swift */,
+				A6CAE153233BE50000BEA527 /* Helper.swift */,
 				A67C8F96233A9698004C6808 /* main.swift */,
 				A67C8FA3233A9D84004C6808 /* ShuttleXHelper-Info.plist */,
 				A67C8FA5233A9EB4004C6808 /* ShuttleXHelper-Launchd.plist */,
@@ -369,8 +370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A609417E2336A08F0020C58C /* StatusMenu.swift in Sources */,
-				A67C8F9F233A987C004C6808 /* ProxySettings.swift in Sources */,
+				A6CAE151233BE49B00BEA527 /* ProxySettings.swift in Sources */,
 				A60941632331465C0020C58C /* AppDelegate.swift in Sources */,
+				A6CAE154233BE50000BEA527 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,8 +381,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67C8F97233A9698004C6808 /* main.swift in Sources */,
-				A67C8FA0233A987C004C6808 /* ProxySettings.swift in Sources */,
-				A67C8F9B233A97A3004C6808 /* Helper.swift in Sources */,
+				A6CAE152233BE49B00BEA527 /* ProxySettings.swift in Sources */,
+				A6CAE155233BE50000BEA527 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

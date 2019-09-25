@@ -13,6 +13,7 @@ import Foundation
     func DisableProxy()
     func ProxyChanged(_ reply: (Bool) -> Void)
     func Exit()
+    func GetVersion(_ reply : (String) -> Void)
 }
 
 class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
@@ -44,6 +45,7 @@ class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
     }
 
     func EnableProxy(_ settings: [NSObject : AnyObject]){
+        print(settings)
         self.proxySettings.EnableProxy(settings: settings)
     }
 
@@ -57,5 +59,9 @@ class ShuttleXHelper: NSObject, NSXPCListenerDelegate, PShuttleXHelper {
     
     func Exit() {
         self.exit = true
+    }
+    
+    func GetVersion(_ reply : (String) -> Void)  {
+        reply("helper version")
     }
 }

@@ -4,5 +4,10 @@
 <dict>
 	<key>Label</key>
 	<string>top.sipt.ShuttleXHelper</string>
+	<key>MachServices</key>
+	<dict>
+		<key>top.sipt.ShuttleXHelper</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
