@@ -11,7 +11,41 @@
 		A61C2234233E97CF00239C17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C2233233E97CF00239C17 /* ViewController.swift */; };
 		A61C2236233E97D000239C17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A61C2235233E97D000239C17 /* Assets.xcassets */; };
 		A61C2239233E97D000239C17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A61C2237233E97D000239C17 /* Main.storyboard */; };
+		A61C2248233E982A00239C17 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C2247233E982A00239C17 /* main.swift */; };
+		A61C2250233E994A00239C17 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224C233E994A00239C17 /* ProcessHelper.swift */; };
+		A61C2251233E994A00239C17 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224C233E994A00239C17 /* ProcessHelper.swift */; };
+		A61C2252233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */; };
+		A61C2253233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */; };
+		A61C2254233E994A00239C17 /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224E233E994A00239C17 /* CodesignChecker.swift */; };
+		A61C2255233E994A00239C17 /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224E233E994A00239C17 /* CodesignChecker.swift */; };
+		A61C2256233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */; };
+		A61C2257233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */; };
+		A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C225E233E997600239C17 /* AppAuthorizationRights.swift */; };
+		A61C2261233E9B0900239C17 /* top.sipt.ShuttleXHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A61C2264233E9DE400239C17 /* SMJobBlessUtil.py in Resources */ = {isa = PBXBuildFile; fileRef = A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A61C2243233E982A00239C17 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A61C2260233E9AE700239C17 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				A61C2261233E9B0900239C17 /* top.sipt.ShuttleXHelper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A61C222E233E97CF00239C17 /* ShuttleX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuttleX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,11 +54,27 @@
 		A61C2235233E97D000239C17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A61C2238233E97D000239C17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A61C223A233E97D000239C17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A61C223B233E97D000239C17 /* ShuttleX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShuttleX.entitlements; sourceTree = "<group>"; };
+		A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = top.sipt.ShuttleXHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		A61C2247233E982A00239C17 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A61C224C233E994A00239C17 /* ProcessHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessHelper.swift; sourceTree = "<group>"; };
+		A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteProcessProtocol.swift; sourceTree = "<group>"; };
+		A61C224E233E994A00239C17 /* CodesignChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesignChecker.swift; sourceTree = "<group>"; };
+		A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivilegedTaskRunnerHelper.swift; sourceTree = "<group>"; };
+		A61C225C233E996300239C17 /* ShuttleXHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Launchd.plist"; sourceTree = "<group>"; };
+		A61C225D233E996300239C17 /* ShuttleXHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Info.plist"; sourceTree = "<group>"; };
+		A61C225E233E997600239C17 /* AppAuthorizationRights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAuthorizationRights.swift; sourceTree = "<group>"; };
+		A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = SMJobBlessUtil.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A61C222B233E97CF00239C17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A61C2242233E982A00239C17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,7 +87,9 @@
 		A61C2225233E97CF00239C17 = {
 			isa = PBXGroup;
 			children = (
+				A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */,
 				A61C2230233E97CF00239C17 /* ShuttleX */,
+				A61C2246233E982A00239C17 /* ShuttleXHelper */,
 				A61C222F233E97CF00239C17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A61C222E233E97CF00239C17 /* ShuttleX.app */,
+				A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,11 +109,25 @@
 				A61C2231233E97CF00239C17 /* AppDelegate.swift */,
 				A61C2233233E97CF00239C17 /* ViewController.swift */,
 				A61C2235233E97D000239C17 /* Assets.xcassets */,
+				A61C225E233E997600239C17 /* AppAuthorizationRights.swift */,
 				A61C2237233E97D000239C17 /* Main.storyboard */,
 				A61C223A233E97D000239C17 /* Info.plist */,
-				A61C223B233E97D000239C17 /* ShuttleX.entitlements */,
 			);
 			path = ShuttleX;
+			sourceTree = "<group>";
+		};
+		A61C2246233E982A00239C17 /* ShuttleXHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A61C225D233E996300239C17 /* ShuttleXHelper-Info.plist */,
+				A61C225C233E996300239C17 /* ShuttleXHelper-Launchd.plist */,
+				A61C224E233E994A00239C17 /* CodesignChecker.swift */,
+				A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */,
+				A61C224C233E994A00239C17 /* ProcessHelper.swift */,
+				A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */,
+				A61C2247233E982A00239C17 /* main.swift */,
+			);
+			path = ShuttleXHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +140,7 @@
 				A61C222A233E97CF00239C17 /* Sources */,
 				A61C222B233E97CF00239C17 /* Frameworks */,
 				A61C222C233E97CF00239C17 /* Resources */,
+				A61C2260233E9AE700239C17 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -82,6 +150,23 @@
 			productName = ShuttleX;
 			productReference = A61C222E233E97CF00239C17 /* ShuttleX.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A61C2244233E982A00239C17 /* top.sipt.ShuttleXHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A61C2249233E982A00239C17 /* Build configuration list for PBXNativeTarget "top.sipt.ShuttleXHelper" */;
+			buildPhases = (
+				A61C2241233E982A00239C17 /* Sources */,
+				A61C2242233E982A00239C17 /* Frameworks */,
+				A61C2243233E982A00239C17 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = top.sipt.ShuttleXHelper;
+			productName = helper;
+			productReference = A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -94,6 +179,9 @@
 				ORGANIZATIONNAME = sipt;
 				TargetAttributes = {
 					A61C222D233E97CF00239C17 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					A61C2244233E982A00239C17 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -112,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				A61C222D233E97CF00239C17 /* ShuttleX */,
+				A61C2244233E982A00239C17 /* top.sipt.ShuttleXHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -121,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61C2264233E9DE400239C17 /* SMJobBlessUtil.py in Resources */,
 				A61C2236233E97D000239C17 /* Assets.xcassets in Resources */,
 				A61C2239233E97D000239C17 /* Main.storyboard in Resources */,
 			);
@@ -134,7 +224,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A61C2234233E97CF00239C17 /* ViewController.swift in Sources */,
+				A61C2254233E994A00239C17 /* CodesignChecker.swift in Sources */,
+				A61C2250233E994A00239C17 /* ProcessHelper.swift in Sources */,
 				A61C2232233E97CF00239C17 /* AppDelegate.swift in Sources */,
+				A61C2256233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */,
+				A61C2252233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */,
+				A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A61C2241233E982A00239C17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61C2248233E982A00239C17 /* main.swift in Sources */,
+				A61C2255233E994A00239C17 /* CodesignChecker.swift in Sources */,
+				A61C2251233E994A00239C17 /* ProcessHelper.swift in Sources */,
+				A61C2257233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */,
+				A61C2253233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,14 +377,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShuttleX/ShuttleX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 34D4U5A5CW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ShuttleX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Launchd.plist\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,16 +408,83 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShuttleX/ShuttleX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 34D4U5A5CW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ShuttleX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Launchd.plist\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A61C224A233E982A00239C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShuttleXHelper/helper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.6;
+				DEVELOPMENT_TEAM = 34D4U5A5CW;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist";
+				MARKETING_VERSION = 1;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Launchd.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleXHelper;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A61C224B233E982A00239C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShuttleXHelper/helper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.6;
+				DEVELOPMENT_TEAM = 34D4U5A5CW;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist";
+				MARKETING_VERSION = 1;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShuttleXHelper/ShuttleXHelper-Launchd.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleXHelper;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -322,6 +507,15 @@
 			buildConfigurations = (
 				A61C223F233E97D000239C17 /* Debug */,
 				A61C2240233E97D000239C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A61C2249233E982A00239C17 /* Build configuration list for PBXNativeTarget "top.sipt.ShuttleXHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A61C224A233E982A00239C17 /* Debug */,
+				A61C224B233E982A00239C17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
