@@ -13,12 +13,14 @@ import ServiceManagement
 class ViewController: NSViewController {
 
     var connection: NSXPCConnection?
-       var authRef: AuthorizationRef?
+    var authRef: AuthorizationRef?
+    var proxy: ProxySetting?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        proxy = ProxySetting()
     }
 
     override var representedObject: Any? {
@@ -27,6 +29,33 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func enable(_ sender: Any) {
+//        let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
+//            NSLog("AppviewController: XPC error: \(error)")
+//            } as? HelperProtocol
+        var xpcService: HelperProtocol? = ProxySettingHelper()
+        if xpcService != nil {
+            proxy?.enableProxy(delegate: xpcService!, proxies: [
+                kCFNetworkProxiesHTTPProxy : "192.168.0.1" as AnyObject?,
+                kCFNetworkProxiesHTTPPort : 8080 as NSNumber,
+                kCFNetworkProxiesHTTPEnable : true as NSNumber,
+                kCFNetworkProxiesHTTPSProxy : "192.168.0.2" as AnyObject?,
+                kCFNetworkProxiesHTTPSPort : 8081 as NSNumber,
+                kCFNetworkProxiesHTTPSEnable : 1 as NSNumber,
+                kCFNetworkProxiesSOCKSProxy : "192.168.0.4" as AnyObject?,
+                kCFNetworkProxiesSOCKSPort : 8082 as NSNumber,
+                kCFNetworkProxiesSOCKSEnable : 1 as NSNumber,
+                ] as [NSObject : AnyObject])
+        }
+    }
+    @IBAction func disable(_ sender: Any) {
+        let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
+            NSLog("AppviewController: XPC error: \(error)")
+            } as? HelperProtocol
+        if xpcService != nil {
+            proxy?.disableProxy(delegate: xpcService!)
+        }
+    }
     @IBAction func call(_ sender: Any) {
         callHelperWithoutAuthorization()
     }
@@ -45,76 +74,27 @@ class ViewController: NSViewController {
        }
     }
     /// Initialize AuthorizationRef, as we need to manage it's lifecycle
-       func initAuthorizationRef() {
-       
-           // Create an empty AuthorizationRef
-           let status = AuthorizationCreate(nil, nil, AuthorizationFlags(), &authRef)
-           if (status != OSStatus(errAuthorizationSuccess)) {
-               NSLog("AppviewController: AuthorizationCreate failed")
-               return
-           }
+    func initAuthorizationRef() {
+       // Create an empty AuthorizationRef
+       let status = AuthorizationCreate(nil, nil, AuthorizationFlags(), &authRef)
+       if (status != OSStatus(errAuthorizationSuccess)) {
+           NSLog("AppviewController: AuthorizationCreate failed")
+           return
        }
+    }
 
-       /// Call Helper using XPC without authorization
-       func callHelperWithoutAuthorization() {
-            NSLog("callHelperWithoutAuthorization")
-           // When the connection is valid, do the actual inter process call
-           let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
-               NSLog("AppviewController: XPC error: \(error)")
-            } as? RemoteProcessProtocol
-           
-           xpcService?.runCommand(path: "/bin/ls /var/db/sudo/", reply: {
-               reply in NSLog("ls /var/db/sudo\n\(reply)\n>_")
-           })
-       }
-       
-       /// Call Helper using XPC with authorization
-       func callHelperWithAuthorization() {
-           
-           var authRefExtForm = AuthorizationExternalForm()
-           let timeout = 2
-           
-           // Make an external form of the AuthorizationRef
-           var status = AuthorizationMakeExternalForm(authRef!, &authRefExtForm)
-           if (status != OSStatus(errAuthorizationSuccess)) {
-               NSLog("AppviewController: AuthorizationMakeExternalForm failed")
-               return
-           }
-           
-           // Add all or update required authorization right definition to the authorization database
-           var currentRight:CFDictionary?
-           
-           // Try to get the authorization right definition from the database
-           status = AuthorizationRightGet(AppAuthorizationRights.shellRightName.utf8String!, &currentRight)
-           
-           if (status == errAuthorizationDenied) {
-               
-               var defaultRules = AppAuthorizationRights.shellRightDefaultRule
-               defaultRules.updateValue(timeout as AnyObject, forKey: "timeout")
-               status = AuthorizationRightSet(authRef!, AppAuthorizationRights.shellRightName.utf8String!, defaultRules as CFDictionary, AppAuthorizationRights.shellRightDescription, nil, "Common" as CFString)
-               NSLog("AppviewController: : Adding authorization right to the security database")
-           }
-           
-           // We need to put the AuthorizationRef to a form that can be passed through inter process call
-           let authData = NSData.init(bytes: &authRefExtForm, length:kAuthorizationExternalFormLength)
-           
-           // When the connection is valid, do the actual inter process call
-           let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
-               NSLog("AppviewController: XPC error: \(error)")
-               } as? RemoteProcessProtocol
-           
-           xpcService?.runCommand(path: "/bin/ls /var/db/sudo/", authData: authData, reply: {
-               reply in
-               // Let's update GUI asynchronously
-               DispatchQueue.global(qos: .background).async {
-                   // Background Thread
-                   DispatchQueue.main.async {
-                       // Run UI Updates
-                       print("ls /var/db/sudo\n\(reply)\n>_")
-                   }
-               }
-           })
-       }
+    /// Call Helper using XPC without authorization
+    func callHelperWithoutAuthorization() {
+        NSLog("callHelperWithoutAuthorization")
+        // When the connection is valid, do the actual inter process call
+        let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
+            NSLog("AppviewController: XPC error: \(error)")
+        } as? HelperProtocol
+
+        xpcService?.runCommand(path: "/bin/ls /var/db/sudo/", reply: {
+            reply in NSLog("ls /var/db/sudo\n\(reply)\n>_")
+        })
+    }
 
        /// Prepare XPC connection for inter process call
        ///
@@ -124,7 +104,7 @@ class ViewController: NSViewController {
            // Check that the connection is valid before trying to do an inter process call to helper
            if(connection==nil) {
                connection = NSXPCConnection(machServiceName: HelperConstants.machServiceName, options: NSXPCConnection.Options.privileged)
-               connection?.remoteObjectInterface = NSXPCInterface(with: RemoteProcessProtocol.self)
+               connection?.remoteObjectInterface = NSXPCInterface(with: HelperProtocol.self)
                connection?.invalidationHandler = {
                    self.connection?.invalidationHandler = nil
                    OperationQueue.main.addOperation() {
@@ -205,11 +185,12 @@ class ViewController: NSViewController {
            // When the connection is valid, do the actual inter process call
            let xpcService = prepareXPC()?.remoteObjectProxyWithErrorHandler() { error -> Void in
                NSLog("XPC error: \(error)")
-               } as? RemoteProcessProtocol
+               } as? HelperProtocol
            
            xpcService?.getVersion(reply: {
                installedVersion in
                NSLog("AppviewController: PrivilegedTaskRunner Helper Installed Version => \(installedVersion)")
+               NSLog("AppviewController: PrivilegedTaskRunner Helper Helper Version => \(helperVersion)")
                if(installedVersion != helperVersion) {
                    self.installHelperDaemon()
                }

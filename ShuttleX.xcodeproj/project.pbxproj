@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		118277992343B13800FEBB7D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118277982343B13800FEBB7D /* Model.swift */; };
+		1182779A2343B13800FEBB7D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118277982343B13800FEBB7D /* Model.swift */; };
+		1182779C2343BB0100FEBB7D /* ProxySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182779B2343BB0100FEBB7D /* ProxySetting.swift */; };
 		A61C2232233E97CF00239C17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C2231233E97CF00239C17 /* AppDelegate.swift */; };
 		A61C2234233E97CF00239C17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C2233233E97CF00239C17 /* ViewController.swift */; };
 		A61C2236233E97D000239C17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A61C2235233E97D000239C17 /* Assets.xcassets */; };
@@ -14,12 +17,12 @@
 		A61C2248233E982A00239C17 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C2247233E982A00239C17 /* main.swift */; };
 		A61C2250233E994A00239C17 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224C233E994A00239C17 /* ProcessHelper.swift */; };
 		A61C2251233E994A00239C17 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224C233E994A00239C17 /* ProcessHelper.swift */; };
-		A61C2252233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */; };
-		A61C2253233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */; };
+		A61C2252233E994A00239C17 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* HelperProtocol.swift */; };
+		A61C2253233E994A00239C17 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224D233E994A00239C17 /* HelperProtocol.swift */; };
 		A61C2254233E994A00239C17 /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224E233E994A00239C17 /* CodesignChecker.swift */; };
 		A61C2255233E994A00239C17 /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224E233E994A00239C17 /* CodesignChecker.swift */; };
-		A61C2256233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */; };
-		A61C2257233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */; };
+		A61C2256233E994A00239C17 /* ProxySettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* ProxySettingHelper.swift */; };
+		A61C2257233E994A00239C17 /* ProxySettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C224F233E994A00239C17 /* ProxySettingHelper.swift */; };
 		A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C225E233E997600239C17 /* AppAuthorizationRights.swift */; };
 		A61C2261233E9B0900239C17 /* top.sipt.ShuttleXHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A61C2264233E9DE400239C17 /* SMJobBlessUtil.py in Resources */ = {isa = PBXBuildFile; fileRef = A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */; };
@@ -48,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		118277982343B13800FEBB7D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1182779B2343BB0100FEBB7D /* ProxySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxySetting.swift; sourceTree = "<group>"; };
 		A61C222E233E97CF00239C17 /* ShuttleX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuttleX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A61C2231233E97CF00239C17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A61C2233233E97CF00239C17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,9 +62,9 @@
 		A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = top.sipt.ShuttleXHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		A61C2247233E982A00239C17 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A61C224C233E994A00239C17 /* ProcessHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessHelper.swift; sourceTree = "<group>"; };
-		A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteProcessProtocol.swift; sourceTree = "<group>"; };
+		A61C224D233E994A00239C17 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		A61C224E233E994A00239C17 /* CodesignChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesignChecker.swift; sourceTree = "<group>"; };
-		A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivilegedTaskRunnerHelper.swift; sourceTree = "<group>"; };
+		A61C224F233E994A00239C17 /* ProxySettingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxySettingHelper.swift; sourceTree = "<group>"; };
 		A61C225C233E996300239C17 /* ShuttleXHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Launchd.plist"; sourceTree = "<group>"; };
 		A61C225D233E996300239C17 /* ShuttleXHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Info.plist"; sourceTree = "<group>"; };
 		A61C225E233E997600239C17 /* AppAuthorizationRights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAuthorizationRights.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 				A61C225E233E997600239C17 /* AppAuthorizationRights.swift */,
 				A61C2237233E97D000239C17 /* Main.storyboard */,
 				A61C223A233E97D000239C17 /* Info.plist */,
+				1182779B2343BB0100FEBB7D /* ProxySetting.swift */,
 			);
 			path = ShuttleX;
 			sourceTree = "<group>";
@@ -122,10 +128,11 @@
 				A61C225D233E996300239C17 /* ShuttleXHelper-Info.plist */,
 				A61C225C233E996300239C17 /* ShuttleXHelper-Launchd.plist */,
 				A61C224E233E994A00239C17 /* CodesignChecker.swift */,
-				A61C224F233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift */,
+				A61C224F233E994A00239C17 /* ProxySettingHelper.swift */,
 				A61C224C233E994A00239C17 /* ProcessHelper.swift */,
-				A61C224D233E994A00239C17 /* RemoteProcessProtocol.swift */,
+				A61C224D233E994A00239C17 /* HelperProtocol.swift */,
 				A61C2247233E982A00239C17 /* main.swift */,
+				118277982343B13800FEBB7D /* Model.swift */,
 			);
 			path = ShuttleXHelper;
 			sourceTree = "<group>";
@@ -227,9 +234,11 @@
 				A61C2254233E994A00239C17 /* CodesignChecker.swift in Sources */,
 				A61C2250233E994A00239C17 /* ProcessHelper.swift in Sources */,
 				A61C2232233E97CF00239C17 /* AppDelegate.swift in Sources */,
-				A61C2256233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */,
-				A61C2252233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */,
+				A61C2256233E994A00239C17 /* ProxySettingHelper.swift in Sources */,
+				A61C2252233E994A00239C17 /* HelperProtocol.swift in Sources */,
+				1182779C2343BB0100FEBB7D /* ProxySetting.swift in Sources */,
 				A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */,
+				118277992343B13800FEBB7D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,10 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A61C2248233E982A00239C17 /* main.swift in Sources */,
+				1182779A2343B13800FEBB7D /* Model.swift in Sources */,
 				A61C2255233E994A00239C17 /* CodesignChecker.swift in Sources */,
 				A61C2251233E994A00239C17 /* ProcessHelper.swift in Sources */,
-				A61C2257233E994A00239C17 /* PrivilegedTaskRunnerHelper.swift in Sources */,
-				A61C2253233E994A00239C17 /* RemoteProcessProtocol.swift in Sources */,
+				A61C2257233E994A00239C17 /* ProxySettingHelper.swift in Sources */,
+				A61C2253233E994A00239C17 /* HelperProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -430,7 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -458,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleXHelper;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -486,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = top.sipt.ShuttleXHelper;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

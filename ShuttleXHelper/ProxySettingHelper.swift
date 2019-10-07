@@ -7,12 +7,19 @@
 
 import Foundation
 import AppKit
+import SystemConfiguration
 
-class PrivilegedTaskRunnerHelper: NSObject, RemoteProcessProtocol, NSXPCListenerDelegate {
+class ProxySettingHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     
     var listener:NSXPCListener
+    var authRef : AuthorizationRef?
+    var prefRef : SCPreferences
 
     override init() {
+        var environment = AuthorizationEnvironment()
+        let err = AuthorizationCreate(nil, &environment, [.interactionAllowed, .extendRights, .destroyRights], &authRef)
+        assert(err == errAuthorizationSuccess)
+        prefRef = SCPreferencesCreateWithAuthorization(kCFAllocatorDefault, "ShuttleX" as CFString, nil, authRef)!
         self.listener = NSXPCListener(machServiceName:HelperConstants.machServiceName)
         super.init()
         self.listener.delegate = self
@@ -71,77 +78,13 @@ class PrivilegedTaskRunnerHelper: NSObject, RemoteProcessProtocol, NSXPCListener
             return false
         }
         
-        connection.exportedInterface = NSXPCInterface(with: RemoteProcessProtocol.self)
+        connection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
         connection.exportedObject = self;
         connection.resume()
         
         return true
     }
     
-     /// Functions to run from the main app
-    func runCommand(path: String, authData: NSData?, reply: @escaping (String) -> Void) {
-        NSLog("runCommand")
-        var authRef:AuthorizationRef?
-        
-        // Verify the passed authData looks reasonable
-        if authData?.length == 0 || authData?.length != kAuthorizationExternalFormLength {
-            NSLog("PrivilegedTaskRunnerHelper: Authorization data is malformed")
-        }
-        
-        // Convert NSData passed through XPC to AuthorizationExternalForm
-        let authExt: UnsafeMutablePointer<AuthorizationExternalForm> = UnsafeMutablePointer.allocate(capacity: kAuthorizationExternalFormLength * MemoryLayout<AuthorizationExternalForm>.size)
-        memcpy(authExt, authData?.bytes, (authData?.length)!)
-        _ = AuthorizationCreateFromExternalForm(authExt, &authRef)
-        
-        // Extract the AuthorizationRef from it's external form
-        var status = AuthorizationCreateFromExternalForm(authExt, &authRef)
-        
-        if (status == errAuthorizationSuccess) {
-            
-            NSLog("PrivilegedTaskRunnerHelper: AuthorizationCreateFromExternalForm was successful")
-            
-            // Get the authorization right definition name of the function calling this
-            let authName = "com.suolapeikko.examples.PrivilegedTaskRunner.runCommand"
-            
-            // Create an AuthorizationItem using that definition's name
-            var authItem = AuthorizationItem(name: (authName as NSString).utf8String!, valueLength: 0, value:UnsafeMutableRawPointer(bitPattern: 0), flags: 0)
-            
-            // Create the AuthorizationRights for using the AuthorizationItem
-            var authRight:AuthorizationRights = AuthorizationRights(count: 1, items:&authItem)
-            
-            // Check if the user is authorized for the AuthorizationRights. If not it might ask the user for their or an admins credentials
-            status = AuthorizationCopyRights(authRef!, &authRight, nil, [ .extendRights, .interactionAllowed ], nil);
-
-            if (status == errAuthorizationSuccess) {
-
-                NSLog("PrivilegedTaskRunnerHelper: AuthorizationCopyRights was successful")
-                
-                // Create cli commands that needs to be run chained / piped
-                let needsSudoCommand = CliCommand(launchPath: "/bin/ls", arguments: ["/var/db/sudo"])
-                
-                // Prepare cli command runner
-                let command = ProcessHelper(commands: [needsSudoCommand])
-                
-                // Prepare result tuple
-                var commandResult: String?
-                
-                // Execute cli commands and prepare for exceptions
-                do {
-                    commandResult = try command.execute()
-                }
-                catch {
-                    
-                    NSLog("PrivilegedTaskRunnerHelper: Failed to run command")
-                }
-                
-                reply(commandResult!)
-            }
-        }
-        else {
-            NSLog("PrivilegedTaskRunnerHelper: Authorization failed")
-        }
-    }
-
     /// Functions to run from the main app
     func runCommand(path: String, reply: @escaping (String) -> Void) {
         NSLog("runCommand!!!!")
@@ -170,5 +113,55 @@ class PrivilegedTaskRunnerHelper: NSObject, RemoteProcessProtocol, NSXPCListener
     /// Because communication over XPC is asynchronous, all methods in the protocol must have a return type of void
     func getVersion(reply: (String) -> Void) {
         reply(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String)
+    }
+    
+    func setProxySettings(proxies: [NSObject: AnyObject]){
+        let sets = SCPreferencesGetValue(prefRef, kSCPrefNetworkServices)!
+        sets.allKeys!.forEach { (key) in
+            let dict = sets.object(forKey: key)!
+            let hardware = (dict as AnyObject).value(forKeyPath: "Interface.Hardware")
+            
+            if hardware != nil && ["AirPort","Wi-Fi","Ethernet"].contains(hardware as! String) {
+                SCPreferencesPathSetValue(prefRef, "/\(kSCPrefNetworkServices)/\(key)/\(kSCEntNetProxies)" as CFString, proxies as CFDictionary)
+            }
+        }
+        
+        SCPreferencesCommitChanges(prefRef)
+        SCPreferencesApplyChanges(prefRef)
+        SCPreferencesSynchronize(prefRef)
+    }
+    
+    func getProxySettings(reply: @escaping ([NSObject: AnyObject])-> Void){
+        NSLog("run func => getProxySettings")
+        if let store = SCDynamicStoreCreateWithOptions(nil, "ShuttleX" as CFString, nil, nil, nil) {
+            if let osxProxySettings: NSDictionary = SCDynamicStoreCopyProxies(store) {
+                NSLog("=>> \(store)")
+                var settings = [
+                    kCFNetworkProxiesHTTPEnable : osxProxySettings[kCFNetworkProxiesHTTPEnable],
+                    kCFNetworkProxiesHTTPSEnable : osxProxySettings[kCFNetworkProxiesHTTPSEnable],
+                    kCFNetworkProxiesSOCKSEnable : osxProxySettings[kCFNetworkProxiesSOCKSEnable],
+                    ] as [NSObject : AnyObject]
+                if osxProxySettings[kCFNetworkProxiesHTTPProxy] != nil {
+                    settings[kCFNetworkProxiesHTTPProxy] = osxProxySettings[kCFNetworkProxiesHTTPProxy]! as AnyObject?
+                } 
+                if osxProxySettings[kCFNetworkProxiesHTTPPort] != nil {
+                    settings[kCFNetworkProxiesHTTPPort] = osxProxySettings[kCFNetworkProxiesHTTPPort]! as! NSNumber
+                }
+                if osxProxySettings[kCFNetworkProxiesHTTPSProxy] != nil {
+                    settings[kCFNetworkProxiesHTTPSProxy] = osxProxySettings[kCFNetworkProxiesHTTPSProxy]! as AnyObject?
+                }
+                if osxProxySettings[kCFNetworkProxiesHTTPSPort] != nil {
+                    settings[kCFNetworkProxiesHTTPSPort] = osxProxySettings[kCFNetworkProxiesHTTPSPort]! as! NSNumber
+                }
+                if osxProxySettings[kCFNetworkProxiesSOCKSProxy] != nil {
+                    settings[kCFNetworkProxiesSOCKSProxy] = osxProxySettings[kCFNetworkProxiesSOCKSProxy] as AnyObject?
+                }
+                if osxProxySettings[kCFNetworkProxiesSOCKSPort] != nil {
+                    settings[kCFNetworkProxiesSOCKSPort] = osxProxySettings[kCFNetworkProxiesSOCKSPort]! as! NSNumber
+                }
+                reply(settings)
+            }
+        }
+        NSLog("get network settings failed")
     }
 }

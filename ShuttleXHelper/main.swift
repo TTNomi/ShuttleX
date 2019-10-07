@@ -7,6 +7,6 @@
 
 import Foundation
 
-NSLog("Starting PrivilegedTaskRunner....")
-let helper = PrivilegedTaskRunnerHelper()
+NSLog("Starting ProxySettingHelper....")
+let helper = ProxySettingHelper()
 helper.run()
