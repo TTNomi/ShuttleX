@@ -9,6 +9,8 @@
 import Foundation
 
 class ProxySetting{
+    
+    
     var oldSettings: [NSObject: AnyObject]?
     var currentSettings: [NSObject: AnyObject]?
     init(){
@@ -36,12 +38,12 @@ class ProxySetting{
         }
         NSLog("set to old network settings: \(self.oldSettings!)")
         delegate.setProxySettings(proxies: self.oldSettings!)
-//        self.oldSettings = nil
-//        self.currentSettings = nil
+        self.oldSettings = nil
+        self.currentSettings = nil
     }
 }
 
-class ProxySettings: NSObject{
+struct ProxySettings{
     var httpHost: String?
     var httpPort: Int?
     var httpEnable: Int?

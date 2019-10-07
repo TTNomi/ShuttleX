@@ -26,6 +26,7 @@
 		A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C225E233E997600239C17 /* AppAuthorizationRights.swift */; };
 		A61C2261233E9B0900239C17 /* top.sipt.ShuttleXHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A61C2245233E982A00239C17 /* top.sipt.ShuttleXHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A61C2264233E9DE400239C17 /* SMJobBlessUtil.py in Resources */ = {isa = PBXBuildFile; fileRef = A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */; };
+		A6DD9EDA234B634100AB4DE5 /* HelperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD9ED9234B634100AB4DE5 /* HelperController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,7 @@
 		A61C225D233E996300239C17 /* ShuttleXHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShuttleXHelper-Info.plist"; sourceTree = "<group>"; };
 		A61C225E233E997600239C17 /* AppAuthorizationRights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAuthorizationRights.swift; sourceTree = "<group>"; };
 		A61C2263233E9DE400239C17 /* SMJobBlessUtil.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = SMJobBlessUtil.py; sourceTree = "<group>"; };
+		A6DD9ED9234B634100AB4DE5 /* HelperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				A61C2237233E97D000239C17 /* Main.storyboard */,
 				A61C223A233E97D000239C17 /* Info.plist */,
 				1182779B2343BB0100FEBB7D /* ProxySetting.swift */,
+				A6DD9ED9234B634100AB4DE5 /* HelperController.swift */,
 			);
 			path = ShuttleX;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				1182779C2343BB0100FEBB7D /* ProxySetting.swift in Sources */,
 				A61C225F233E997600239C17 /* AppAuthorizationRights.swift in Sources */,
 				118277992343B13800FEBB7D /* Model.swift in Sources */,
+				A6DD9EDA234B634100AB4DE5 /* HelperController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +305,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 34D4U5A5CW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -361,8 +368,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 34D4U5A5CW;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

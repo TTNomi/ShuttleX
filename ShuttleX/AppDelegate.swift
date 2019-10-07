@@ -13,16 +13,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     
-   
+    let proxySetting = ProxySetting()
+    let helperController = HelperController()
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         constructMenu()
+        registerObserver()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        removeObserver()
     }
     
     func constructMenu() {
@@ -35,8 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Start", action: nil, keyEquivalent: "c"))
         menu.addItem(NSMenuItem(title: "Stop", action: nil, keyEquivalent: "c"))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Set As System Proxies", action: nil, keyEquivalent: "c"))
-        menu.addItem(NSMenuItem(title: "Unset As System Proxies", action: nil, keyEquivalent: "c"))
+        menu.addItem(NSMenuItem(title: "Set As System Proxies", action: #selector(setAsSystemProxy), keyEquivalent: "s"))
+        menu.addItem(NSMenuItem(title: "Unset As System Proxies", action: #selector(unsetAsSystemProxy), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Quotes", action: nil, keyEquivalent: "q"))
         
@@ -48,6 +51,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func callHelper() {
+    }
+    
+    @objc func setAsSystemProxy() {
+        if let helper = self.helperController.GetHelperProtocol() {
+            self.proxySetting.enableProxy(delegate: helper, proxies: ProxySettings(
+                httpHost: "127.0.0.1",
+                httpPort: 8081,
+                httpEnable: 1,
+                httpsHost: "127.0.0.1",
+                httpsPort: 8081,
+                httpsEnable: 1,
+                socksHost: "127.0.0.1",
+                socksPort: 8082,
+                socksEnable: 1
+            ))
+        }
+        
+    }
+    
+    @objc func unsetAsSystemProxy() {
+        if let helper = self.helperController.GetHelperProtocol() {
+            self.proxySetting.disableProxy(delegate: helper)
+        }
+    }
+    
+    
+    func registerObserver() {
+        let observer = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
+        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), //center
+            observer, // observer
+            { (nc, observer, name, ptr, _) -> Swift.Void in
+                if let _ = observer, let name = name {
+                if(name.rawValue as String == "com.apple.system.config.proxy_change")
+                {
+                    print("proxy changed")
+                    // TODO: check proxy
+                }
+            } }, // callback
+            "com.apple.system.config.proxy_change" as CFString, // event name
+            nil, // object
+            .deliverImmediately);
+    }
+    
+    func removeObserver() {
+        let observer = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
+        CFNotificationCenterRemoveObserver(CFNotificationCenterGetDarwinNotifyCenter(), observer, nil, nil)
     }
 }
 
